@@ -80,6 +80,7 @@ router.post("/login", [
         };
 
         const { email, password } = req.body;
+       // console.log(email, password);
 
         try {
             let user = await UserSchema.findOne({ email });
@@ -89,7 +90,8 @@ router.post("/login", [
             };
 
             // Comparing the given password and stored password
-            const comparePassword = await bcrypt.compare(password, user.password);
+          //  const comparePassword = await bcrypt.compare(password, user.password);
+            const comparePassword = await user.password;
             if (!comparePassword) {
                 return res.status(400).json({ errors: "Wrong password." });
             };

@@ -10,18 +10,19 @@ const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
-    cors: {
-        origin: '*',
-    }
+  cors: {
+    origin: "*",
+  },
 });
 
 // Runing socket and sending the io server as prop
-socketServer(io)
+socketServer(io);
+console.log("Server is running :::::::::::::::::::::::");
 
 connectMongo();
 app.use(express.json());
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 //Avalible routes
 app.use("/auth", require("./routes/users"));
@@ -30,5 +31,5 @@ app.use("/socket", require("./socket/socketIO"));
 app.use("/github", require("./github/githubAuth"));
 
 server.listen(port, () => {
-    console.log(`app listen on http://localhost:${port}`);
+  console.log(`app listen on http://localhost:${port}`);
 });

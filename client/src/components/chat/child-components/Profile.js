@@ -79,7 +79,7 @@ function Profile({ chatWith }) {
                   <PhotoView src={`http://localhost:4000/images/` + image}>
                     <img src={`http://localhost:4000/images/` + image} alt='' />
                   </PhotoView>
-                  : name.slice(0, 2)
+                  : name?.slice(0, 2)
               }
             </span>
             <div className='user-name'>{name}</div>

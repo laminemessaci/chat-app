@@ -24,7 +24,7 @@ function Singup({ callApi }) {
 
   // Signup user with infos
   async function signupUser({ name, email, password }) {
-    const responce = await fetch("http://localhost:4000/auth/signup", {
+    const response = await fetch("http://localhost:4000/auth/signup", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -32,7 +32,7 @@ function Singup({ callApi }) {
       body: JSON.stringify({ name, email, password })
     });
 
-    const parsedData = await responce.json();
+    const parsedData = await response.json();
     if (parsedData.authToken) {
       localStorage.setItem("authToken", parsedData.authToken);
       callApi();

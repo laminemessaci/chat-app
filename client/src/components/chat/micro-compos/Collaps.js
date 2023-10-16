@@ -59,7 +59,7 @@ function Collaps({ onUserChange, setUser, user, dispatch, setDisplay }) {
                     <div className='collap-profile'>
                         <span className='profile-img collap-img' style={{ background: image ? "black" : avatar }}>                       
                             <img src={`http://localhost:4000/images/` + image} alt='' id='avatar-image' style={{display: !image && "none"}} />
-                            {!image && name.length >= 1 && name.slice(0, 2)}
+                            {!image && name?.length >= 1 && name?.slice(0, 2)}
                         </span>
                         <div onClick={() => setDisplay("flex")}>
                             <i className="ri-edit-2-fill"></i>

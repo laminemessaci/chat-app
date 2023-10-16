@@ -34,7 +34,7 @@ function AvailableChat({ setChatWith, toggleMenu }) {
   }, [allUsersData.data, userData.data]);
 
   useEffect(() => {
-    const filter = data && data.filter(obj => obj.name.toLocaleLowerCase().includes(searchValue));
+    const filter = data && data.filter(obj => obj.name?.toLocaleLowerCase().includes(searchValue));
     setFilterValue(filter);
   }, [searchValue, data]);
 
@@ -95,7 +95,7 @@ function AvailableChat({ setChatWith, toggleMenu }) {
               return (
                 <li key={_id} onClick={() => clickedChat(data)}>
                   <span className='profile-img' style={{ background: image ? "black" : avatar }}>
-                    {image ? <img src={`http://localhost:4000/images/` + image} alt='profile' /> : name.slice(0, 2)}
+                    {image ? <img src={`http://localhost:4000/images/` + image} alt='profile' /> : name?.slice(0, 2)}
                   </span>
                   <span className='name-msg'>
                     <div className='name'>{name}</div>
